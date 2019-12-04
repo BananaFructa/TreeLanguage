@@ -23,9 +23,14 @@ namespace treeConvertor
             InitializeComponent();
             string[] characters = System.IO.File.ReadAllLines(@"config.ini");
             foreach(string x in characters) {
-                text2tree.Add(x.Split('>')[0],x.Split('>')[1]);
+                text2tree.Add(x.Split('>')[0],toUnicode(x.Split('>')[1]));
                 tree2text.Add(x.Split('>')[1], x.Split('>')[0]);
             }
+        }
+
+        string toUnicode(string txt)
+        {
+            return txt.Replace(":palm_tree:", "🌴").Replace(":evergreen_tree:", "🌲").Replace(":christmas_tree:", "🎄").Replace(":deciduous_tree:", "🌳").Replace(":tanabata_tree:", "🎋");
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -34,7 +39,7 @@ namespace treeConvertor
             string result = "";
             if (textToTree) {
                 foreach (char x in text) {
-                    result += (text2tree.ContainsKey(x.ToString()) ? text2tree[x.ToString()] : x.ToString()) + betweenLetters;
+                    result += (text2tree.ContainsKey(x.ToString()) ? text2tree[x.ToString()] : x.ToString()) + toUnicode(betweenLetters);
                 }
                 richTextBox2.Text = result;
             } else {
