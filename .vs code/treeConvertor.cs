@@ -33,9 +33,39 @@ namespace treeConvertor
             return txt.Replace(":palm_tree:", "🌴").Replace(":evergreen_tree:", "🌲").Replace(":christmas_tree:", "🎄").Replace(":deciduous_tree:", "🌳").Replace(":tanabata_tree:", "🎋");
         }
 
+        double getDensity(string txt)
+        {
+            double palmD = txt.Length - txt.Replace(":palm_tree:", "").Length;
+            double everD = txt.Length - txt.Replace(":evergreen_tree:", "").Length;
+            double decideousD = txt.Length - txt.Replace(":deciduous_tree:", "").Length;
+            double tanabataD = txt.Length - txt.Replace(":tanabata_tree:", "").Length;
+            return (palmD + everD + decideousD + tanabataD) / txt.Length;
+        }
+
+        void changeTranslation(bool state)
+        {
+            textToTree = state;
+            if (textToTree) {
+                label1.Text = "Text";
+                label2.Text = "Tree";
+            }
+            else {
+                label1.Text = "Tree";
+                label2.Text = "Text";
+            }
+        }
+
         private void Button1_Click(object sender, EventArgs e)
         {
             string text = richTextBox1.Text.Replace("\n", " ").ToLower();
+            double a = getDensity(text);
+            if (checkBox1.Checked) {
+                if (getDensity(text) > 0.50 && textToTree) {
+                    changeTranslation(false);
+                } else if (getDensity(text) <= 0.50 && !textToTree) {
+                    changeTranslation(true);
+                }
+            }
             string result = "";
             if (textToTree) {
                 foreach (char x in text) {
@@ -58,14 +88,7 @@ namespace treeConvertor
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            textToTree = !textToTree;
-            if (textToTree) {
-                label1.Text = "Text";
-                label2.Text = "Tree";
-            } else {
-                label1.Text = "Tree";
-                label2.Text = "Text";
-            }
+            changeTranslation(!textToTree);
         }
     }
 }
