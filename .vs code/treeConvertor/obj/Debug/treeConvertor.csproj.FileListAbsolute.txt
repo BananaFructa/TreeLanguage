@@ -1,0 +1,10 @@
+C:\Users\Stefan\source\repos\treeConvertor\bin\Debug\treeConvertor.exe.config
+C:\Users\Stefan\source\repos\treeConvertor\bin\Debug\treeConvertor.exe
+C:\Users\Stefan\source\repos\treeConvertor\bin\Debug\treeConvertor.pdb
+C:\Users\Stefan\source\repos\treeConvertor\obj\Debug\treeConvertor.csprojAssemblyReference.cache
+C:\Users\Stefan\source\repos\treeConvertor\obj\Debug\treeConvertor.Properties.Resources.resources
+C:\Users\Stefan\source\repos\treeConvertor\obj\Debug\treeConvertor.csproj.GenerateResource.cache
+C:\Users\Stefan\source\repos\treeConvertor\obj\Debug\treeConvertor.csproj.CoreCompileInputs.cache
+C:\Users\Stefan\source\repos\treeConvertor\obj\Debug\treeConvertor.exe
+C:\Users\Stefan\source\repos\treeConvertor\obj\Debug\treeConvertor.pdb
+C:\Users\Stefan\source\repos\treeConvertor\obj\Debug\treeConvertor.treeConvertor.resources
